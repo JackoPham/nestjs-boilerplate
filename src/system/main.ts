@@ -3,9 +3,9 @@ import { AppModule } from './app.module';
 import Project from '../config/Project';
 
 import 'reflect-metadata';
-import { AnyExceptionFilter } from '../middleware/AnyExceptionFilter';
-import { HttpExceptionFilter } from '../middleware/ExceptionFilter';
-import { AuthenInterceptor } from '../middleware/AuthenInterceptor';
+import { AnyExceptionFilter } from './middleware/AnyExceptionFilter';
+import { HttpExceptionFilter } from './middleware/ExceptionFilter';
+import { AuthenInterceptor } from './middleware/AuthenInterceptor';
 
 async function createServer() {
   const port = Project.PORT;

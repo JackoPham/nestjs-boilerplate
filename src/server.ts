@@ -11,7 +11,7 @@ if (process.env.SINGLE_THREAD) {
   console.log(
     '\x1b[32m',
     `\n${proto}://localhost${Project.PORT === 80 ? '' : ':' + Project.PORT}`,
-    '\x1b[0m'
+    '\x1b[0m',
   );
 } else {
   if (cluster.isMaster) {
@@ -22,7 +22,7 @@ if (process.env.SINGLE_THREAD) {
       `\n Master: ${proto}://localhost${
         Project.PORT === 80 ? '' : ':' + Project.PORT
       }`,
-      '\x1b[0m'
+      '\x1b[0m',
     );
     // SubscribeEvent.init();
 

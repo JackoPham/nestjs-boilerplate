@@ -8,17 +8,18 @@ export class AnyExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     const status = 503;
-    let msgData = JSON.stringify(exception);
-    if (msgData !== '{}')
+    const msgData = JSON.stringify(exception);
+    if (msgData !== '{}') {
       LogHelper.writeLog(
         '',
         `${request.method} ${request.originalUrl}\n${msgData}\n`
       );
-    else
+    } else {
       LogHelper.writeLog(
         '',
         `${request.method} ${request.originalUrl}\n${exception.toString()}\n`
       );
+    }
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),

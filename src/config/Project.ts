@@ -1,60 +1,62 @@
-import {SystemHelper} from 'aluha-ezcode-helper';
+import { SystemHelper } from 'aluha-ezcode-helper';
 
 const config = SystemHelper.Development;
 class Default {
-    static HOST: string = config.SERVER.DOMAIN;
-    static PORT: number = config.SERVER.PORT;
-    static PORT_CACHING: number = 3000;
-    static PROJECT_NAME: string = 'Kenry nice';
-    static AUTHENTICATION_EXPIRES: number = 15; // Days
+  static HOST: string = config.SERVER.DOMAIN;
+  static PORT: number = config.SERVER.PORT;
+  static PORT_CACHING: number = 3000;
+  static PROJECT_NAME: string = 'Kenry nice';
+  static AUTHENTICATION_EXPIRES: number = 15; // Days
 }
 
 interface IProject {
+  HOST: string;
+  PORT: number;
+  PORT_CACHING: number;
+  PROJECT_NAME: string;
+  AUTHENTICATION_EXPIRES: number;
+
+  DATABASES: [
+    {
+      NAME: string;
+      HOST: string;
+      PORT: number;
+      DB_NAME: string;
+      USERNAME: string;
+      PASSWORD: string;
+    }
+  ];
+
+  RABBITMQ: {
     HOST: string;
-    PORT: number;
-    PORT_CACHING: number;
-    PROJECT_NAME: string;
-    AUTHENTICATION_EXPIRES: number;
+    USER: string;
+    PWD: string;
+  };
 
-    DATABASES: [{
-        NAME: string,
-        HOST: string,
-        PORT: number,
-        DB_NAME: string,
-        USERNAME: string,
-        PASSWORD: string
-    }];
+  eventStoreSettings: any;
 
-    RABBITMQ: {
-        HOST: string,
-        USER: string,
-        PWD: string
+  SMTP: {
+    AUTHENTICATOR: {
+      USERNAME: string;
+      PASSWORD: string;
     };
-
-    eventStoreSettings: any;
-
-    SMTP: {
-        AUTHENTICATOR: {
-            USERNAME: string,
-            PASSWORD: string
-        },
-        SENDER: {
-            NAME: string,
-            EMAIL: string
-        }
+    SENDER: {
+      NAME: string;
+      EMAIL: string;
     };
+  };
 }
 
 class Project {
-    static getConfiguration() {
-        // Get the current config
-        let envConfig = require(`./env/${process.env.NODE_ENV}`);
-        let config = {
-            ...Default,
-            ...envConfig.default
-        };
-        return config;
-    }
+  static getConfiguration() {
+    // Get the current config
+    let envConfig = require(`./env/${process.env.NODE_ENV}`);
+    let config = {
+      ...Default,
+      ...envConfig.default,
+    };
+    return config;
+  }
 }
 
 Object.seal(Project);

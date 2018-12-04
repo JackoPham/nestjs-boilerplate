@@ -13,7 +13,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     const status = exception.getStatus();
-    let msgData = JSON.stringify(exception);
+    const msgData = JSON.stringify(exception);
     LogHelper.writeLog(
       '',
       `${request.method} ${request.originalUrl}\n${msgData}\n`
