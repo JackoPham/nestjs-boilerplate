@@ -1,0 +1,96 @@
+{
+    "DEVELOPMENT": {
+        "SERVER": {
+            "PORT": "17091",
+            "DOMAIN": "localhost"
+        },
+        "RABBITMQ": {
+            "HOST": "",
+            "PORT": "",
+            "USERNAME": "",
+            "PASSWORD": ""
+        },
+        "REDIS": {
+            "HOST": "192.168.1.207",
+            "PORT": "6379",
+            "PASSWORD": "vnng@123"
+        },
+        "DATABASES": {
+            "POSTGRES": {
+                "HOST": "192.168.1.207",
+                "PORT": "5432",
+                "DB_NAME": "swap-ez-admin-order",
+                "USERNAME": "postgres",
+                "PASSWORD": "vnng@2018"
+            },
+            "MONGO": {
+                "HOST": "localhost",
+                "PORT": "27017",
+                "DB_NAME": "aluha-db",
+                "USERNAME": "",
+                "PASSWORD": ""
+            }
+        },
+        "MAIL": {
+            "HOST": "",
+            "PORT": "",
+            "PASSWORD": ""
+        },
+        "SERVICE": {
+            "POSTGRES_DB": true,
+            "REDIS": true,
+            "RABBITMQ": false,
+            "EVENTSTORE": false
+        },
+        "PATHS":{
+            "LOGPATH":"logs/"
+        }
+    },
+    "PRODUCTION": {
+        "SERVER": {
+            "PORT": "5003",
+            "DOMAIN": "localhost"
+        },
+        "RABBITMQ": {
+            "HOST": "",
+            "PORT": "",
+            "USERNAME": "",
+            "PASSWORD": ""
+        },
+        "REDIS": {
+            "HOST": "192.168.1.207",
+            "PORT": "6379",
+            "PASSWORD": "vnng@123"
+        },
+        "DATABASES": {
+            "POSTGRES": {
+                "HOST": "192.168.1.207",
+                "PORT": "5432",
+                "DB_NAME": "swap-ez-admin-order",
+                "USERNAME": "postgres",
+                "PASSWORD": "vnng@2018"
+            },
+            "MONGO": {
+                "HOST": "localhost",
+                "PORT": "27017",
+                "DB_NAME": "aluha-db",
+                "USERNAME": "",
+                "PASSWORD": ""
+            }
+        },
+        "MAIL": {
+            "HOST": "",
+            "PORT": "",
+            "PASSWORD": ""
+        },
+        "SERVICE": {
+            "POSTGRES_DB": true,
+            "REDIS": true,
+            "RABBITMQ": false,
+            "EVENTSTORE": false
+        },
+        "PATHS":{
+            "LOGPATH":"logs/"
+        }
+    }
+}
