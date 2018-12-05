@@ -4,25 +4,28 @@ const aluha_ezcode_helper_1 = require("aluha-ezcode-helper");
 const config = aluha_ezcode_helper_1.SystemHelper.Production;
 class Production {
 }
-Production.DATABASES = [{
+Production.DATABASES = [
+    {
         NAME: 'default',
         HOST: config.DATABASES.POSTGRES.HOST,
         PORT: config.DATABASES.POSTGRES.PORT,
         DB_NAME: config.DATABASES.POSTGRES.DB_NAME,
         USERNAME: config.DATABASES.POSTGRES.USERNAME,
-        PASSWORD: config.DATABASES.POSTGRES.PASSWORD
-    }, {
+        PASSWORD: config.DATABASES.POSTGRES.PASSWORD,
+    },
+    {
         NAME: 'test',
         HOST: 'localhost',
         PORT: 27017,
         DB_NAME: 'nodejs-boilerplate',
         USERNAME: '',
-        PASSWORD: ''
-    }];
+        PASSWORD: '',
+    },
+];
 Production.RABBITMQ = {
     HOST: config.RABBITMQ.HOST,
     USER: config.RABBITMQ.USER,
-    PWD: config.RABBITMQ.PWD
+    PWD: config.RABBITMQ.PWD,
 };
 Production.eventStoreSettings = () => ({
     type: 'mongodb',
@@ -35,18 +38,18 @@ Production.eventStoreSettings = () => ({
     snapshotsCollectionName: 'snapshots',
     transactionsCollectionName: 'transactions',
     options: {
-        useNewUrlParser: true
-    }
+        useNewUrlParser: true,
+    },
 });
 Production.SMTP = {
     AUTHENTICATOR: {
         USERNAME: '[Authenticator Email]',
-        PASSWORD: '[Password]'
+        PASSWORD: '[Password]',
     },
     SENDER: {
         NAME: '[Sender Name]',
-        EMAIL: '[Sender Email]'
-    }
+        EMAIL: '[Sender Email]',
+    },
 };
 exports.default = Production;
 //# sourceMappingURL=Production.js.map

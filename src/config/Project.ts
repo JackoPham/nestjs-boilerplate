@@ -4,9 +4,9 @@ const config = SystemHelper.Development;
 class Default {
   static HOST: string = config.SERVER.DOMAIN;
   static PORT: number = config.SERVER.PORT;
-  static PORT_CACHING: number = 3000;
-  static PROJECT_NAME: string = 'Kenry nice';
-  static AUTHENTICATION_EXPIRES: number = 15; // Days
+  static PORT_CACHING = 3000;
+  static PROJECT_NAME = 'Kenry nice';
+  static AUTHENTICATION_EXPIRES = 15; // Days
 }
 
 interface IProject {
@@ -50,8 +50,8 @@ interface IProject {
 class Project {
   static getConfiguration() {
     // Get the current config
-    let envConfig = require(`./env/${process.env.NODE_ENV}`);
-    let config = {
+    const envConfig = require(`./env/${process.env.NODE_ENV}`);
+    const config = {
       ...Default,
       ...envConfig.default,
     };

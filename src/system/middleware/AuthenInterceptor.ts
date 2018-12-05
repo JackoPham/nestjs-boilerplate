@@ -1,8 +1,13 @@
-import { Interceptor, NestInterceptor, ExecutionContext } from '@nestjs/common';
+import {
+  Interceptor,
+  NestInterceptor,
+  ExecutionContext,
+  Injectable,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/do';
 
-@Interceptor()
+@Injectable()
 export class AuthenInterceptor implements NestInterceptor {
   intercept(
     context: ExecutionContext,

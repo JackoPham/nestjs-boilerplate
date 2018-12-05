@@ -47,11 +47,11 @@
         ],
         "interface-name": [
             true,
-            "never-prefix"
+            "always-prefix"
         ],
         "interface-over-type-literal": true,
         "jsdoc-format": false,
-        "linebreak-style": [true, "CRLF"],
+        "linebreak-style": [false, "CRLF"],
         "next-line": [
             true,
             "check-catch",

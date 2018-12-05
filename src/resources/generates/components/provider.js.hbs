@@ -1,0 +1,12 @@
+import { Connection, Repository } from 'typeorm';
+import { {{ properCase name }} } from '../entity/{{ lowerCase name }}.entity';
+
+export const {{ lowerCase name }}Providers = [
+  {
+    provide: '{{ properCase name }}RepositoryToken',
+    useFactory: (connection: Connection, errr: any) => {
+      return connection.getRepository({{ properCase name }});
+    },
+    inject: ['DbConnectionToken'],
+  },
+];

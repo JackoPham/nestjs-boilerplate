@@ -11,18 +11,18 @@ if (process.env.SINGLE_THREAD) {
   console.log(
     '\x1b[32m',
     `\n${proto}://localhost${Project.PORT === 80 ? '' : ':' + Project.PORT}`,
-    '\x1b[0m',
+    '\x1b[0m'
   );
 } else {
   if (cluster.isMaster) {
-    let numCPUs = os.cpus().length;
+    const numCPUs = os.cpus().length;
     console.log('\x1b[34m', 'Multiple thread', '\x1b[0m');
     console.log(
       '\x1b[32m',
       `\n Master: ${proto}://localhost${
         Project.PORT === 80 ? '' : ':' + Project.PORT
       }`,
-      '\x1b[0m',
+      '\x1b[0m'
     );
     // SubscribeEvent.init();
 

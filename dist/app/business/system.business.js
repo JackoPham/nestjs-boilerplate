@@ -10,7 +10,6 @@ const common_1 = require("@nestjs/common");
 let SystemService = class SystemService {
     root() {
         try {
-            const a = JSON.parse('sasd');
             return 'Api was working...';
         }
         catch (error) {

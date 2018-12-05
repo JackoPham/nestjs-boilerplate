@@ -11,8 +11,8 @@ Default.PROJECT_NAME = 'Kenry nice';
 Default.AUTHENTICATION_EXPIRES = 15;
 class Project {
     static getConfiguration() {
-        let envConfig = require(`./env/${process.env.NODE_ENV}`);
-        let config = Object.assign({}, Default, envConfig.default);
+        const envConfig = require(`./env/${process.env.NODE_ENV}`);
+        const config = Object.assign({}, Default, envConfig.default);
         return config;
     }
 }

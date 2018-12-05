@@ -8,18 +8,20 @@ class Development {
       HOST: config.DATABASES.POSTGRES.HOST,
       PORT: config.DATABASES.POSTGRES.PORT,
       DB_NAME: config.DATABASES.DATABASE_DYAMICS
-        ? config.DATABASES.DATABASE_DYAMICS.ORDER.DB_NAME
+        ? config.DATABASES.DATABASE_DYAMICS.AUTHEN.DB_NAME
         : config.DATABASES.POSTGRES.DB_NAME,
       USERNAME: config.DATABASES.POSTGRES.USERNAME,
       PASSWORD: config.DATABASES.POSTGRES.PASSWORD,
     },
     {
-      NAME: 'test',
-      HOST: 'localhost',
-      PORT: 5432,
-      DB_NAME: 'swap-ez-admin-order',
-      USERNAME: '',
-      PASSWORD: '',
+      NAME: 'device',
+      HOST: config.DATABASES.POSTGRES.HOST,
+      PORT: config.DATABASES.POSTGRES.PORT,
+      DB_NAME: config.DATABASES.DATABASE_DYAMICS
+        ? config.DATABASES.DATABASE_DYAMICS.DEVICE.DB_NAME
+        : config.DATABASES.POSTGRES.DB_NAME,
+      USERNAME: config.DATABASES.POSTGRES.USERNAME,
+      PASSWORD: config.DATABASES.POSTGRES.PASSWORD,
     },
   ];
 

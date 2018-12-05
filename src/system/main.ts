@@ -20,8 +20,9 @@ async function createServer() {
   server.on('error', onError);
 
   server.on('listening', () => {
-    let addr = server.address();
-    let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    const addr = server.address();
+    const bind =
+      typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log('\x1b[35m', 'Listening on ' + bind, '\x1b[0m');
   });
 
@@ -31,7 +32,7 @@ async function createServer() {
   function onError(error) {
     if (error.syscall !== 'listen') throw error;
 
-    let bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+    const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
     /* eslint-disable */
     // handle specific listen errors with friendly messages

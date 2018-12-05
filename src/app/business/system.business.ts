@@ -4,7 +4,6 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 export class SystemService {
   root(): string {
     try {
-      const a = JSON.parse('sasd');
       return 'Api was working...';
     } catch (error) {
       throw error;

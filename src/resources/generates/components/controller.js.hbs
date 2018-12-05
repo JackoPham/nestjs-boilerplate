@@ -1,0 +1,18 @@
+import { Get, Controller, Headers } from '@nestjs/common';
+import { {{ properCase name }}Service } from '../app/business/{{ lowerCase name }}.business';
+
+@Controller("{{ lowerCase name }}")
+class {{ properCase name }}Controller {
+
+  constructor(private readonly {{ lowerCase name }}Service: {{ properCase name }}Service) {}
+
+  @Get('test')
+  root(): string {
+    return this.{{ lowerCase name }}Service.root();
+  }
+  @Get('list')
+  async getList() {
+    return await this.{{ lowerCase name }}Service.findAll();
+  }
+}
+export default {{ properCase name }}Controller;

@@ -12,9 +12,9 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const Project_1 = require("../config/Project");
 require("reflect-metadata");
-const AnyExceptionFilter_1 = require("../middleware/AnyExceptionFilter");
-const ExceptionFilter_1 = require("../middleware/ExceptionFilter");
-const AuthenInterceptor_1 = require("../middleware/AuthenInterceptor");
+const AnyExceptionFilter_1 = require("./middleware/AnyExceptionFilter");
+const ExceptionFilter_1 = require("./middleware/ExceptionFilter");
+const AuthenInterceptor_1 = require("./middleware/AuthenInterceptor");
 function createServer() {
     return __awaiter(this, void 0, void 0, function* () {
         const port = Project_1.default.PORT;
