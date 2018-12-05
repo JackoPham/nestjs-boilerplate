@@ -37,7 +37,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/controllers/{{properCase name}}.controller.ts',
+                path: '../../../src/controllers/{{lowerCase name}}.controller.ts',
                 templateFile: './components/controller.js.hbs',
                 abortOnFail: true,
             }, {
@@ -79,12 +79,12 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/app/business/{{properCase name}}Business.ts',
+                path: '../../../src/app/business/{{lowerCase name}}.business.ts',
                 templateFile: './components/business.js.hbs',
                 abortOnFail: true,
             }, {
                 type: 'add',
-                path: '../../../src/app/business/interfaces/I{{properCase name}}Business.ts',
+                path: '../../../src/app/business/interfaces/I{{lowerCase name}}.business.ts',
                 templateFile: './components/ibusiness.js.hbs',
                 abortOnFail: true,
             });
@@ -94,7 +94,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/app/entity/{{properCase name}}Entity.ts',
+                path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
                 templateFile: './components/entity.js.hbs',
                 abortOnFail: true,
             });
@@ -104,7 +104,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/controllers/{{properCase name}}.controller.ts',
+                path: '../../../src/controllers/{{lowerCase name}}.controller.ts',
                 templateFile: './components/controller.js.hbs',
                 abortOnFail: true,
             });
@@ -114,7 +114,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/app/repository/{{properCase name}}Repository.ts',
+                path: '../../../src/app/repository/{{lowerCase name}}.repository.ts',
                 templateFile: './components/repository.js.hbs',
                 abortOnFail: true,
             });
@@ -144,7 +144,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/app/entity/{{properCase name}}Entity.ts',
+                path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
                 templateFile: './components/entity.js.hbs',
                 abortOnFail: true,
             });
