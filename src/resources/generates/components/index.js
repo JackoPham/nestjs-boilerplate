@@ -104,7 +104,7 @@ module.exports = {
         {
             actions.push({
                 type: 'add',
-                path: '../../../src/controllers/{{properCase name}}Controller.ts',
+                path: '../../../src/controllers/{{properCase name}}.controller.ts',
                 templateFile: './components/controller.js.hbs',
                 abortOnFail: true,
             });

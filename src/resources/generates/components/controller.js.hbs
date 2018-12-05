@@ -1,7 +1,7 @@
 import { Get, Controller, Headers } from '@nestjs/common';
 import { {{ properCase name }}Service } from '../app/business/{{ lowerCase name }}.business';
 
-@Controller("{{ lowerCase name }}")
+@Controller('{{ lowerCase name }}')
 class {{ properCase name }}Controller {
 
   constructor(private readonly {{ lowerCase name }}Service: {{ properCase name }}Service) {}

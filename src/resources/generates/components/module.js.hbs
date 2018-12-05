@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import {{ properCase name }}Controller from '../controllers/{{ lowerCase name }}.controller';
-import { {{ properCase name }}Service } from '../app/business/{{ lowerCase name }}.business';
-import { DatabaseModule } from '../system/database/database.module';
-import { {{ properCase name }}Providers } from '../app/provider/{{ lowerCase name }}.provider';
+import {{ properCase name }}Controller from '../../controllers/{{ lowerCase name }}.controller';
+import { {{ properCase name }}Service } from '../../app/business/{{ lowerCase name }}.business';
+import { DatabaseModule } from '../../system/database/database.module';
+import { {{ properCase name }}Providers } from '../../app/provider/{{ lowerCase name }}.provider';
 
 @Module({
   imports: [DatabaseModule],
