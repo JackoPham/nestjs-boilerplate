@@ -1,12 +1,12 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { Permission } from '../entity/permission.entity';
+import PermissionRepository from '../repository/permission.repository';
 
 @Injectable()
 export class PermissionService {
   constructor(
     @Inject('PermissionRepositoryToken')
-    private readonly permissionRepo: Repository<Permission>
+    private readonly permissionRepo: PermissionRepository
   ) {}
 
   root(): string {

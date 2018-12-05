@@ -1,12 +1,13 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import  {{ properCase name }}  from '../entity/{{ lowerCase name }}.entity';
+import {{ properCase name }}Repository from '../repository/{{ lowerCase name }}.repository';
 
 @Injectable()
 export class {{ properCase name }}Service {
   constructor(
     @Inject('{{ properCase name }}RepositoryToken')
-    private readonly {{ lowerCase name }}Repo: Repository<{{ properCase name }}>
+    private readonly {{ lowerCase name }}Repo: {{ properCase name }}Repository
   ) {}
 
   root(): string {
