@@ -1,9 +1,10 @@
 import { Get, Controller, Headers } from '@nestjs/common';
 import { ProductService } from '../app/business/product.business';
+import { ApiUseTags } from '@nestjs/swagger';
 
+@ApiUseTags('products')
 @Controller('product')
 class ProductController {
-
   constructor(private readonly productService: ProductService) {}
 
   @Get('test')

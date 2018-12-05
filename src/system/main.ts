@@ -1,24 +1,36 @@
 import { NestFactory } from '@nestjs/core';
+import * as compression from 'compression';
 import { AppModule } from './app.module';
 import Project from '../config/Project';
-
 import 'reflect-metadata';
 import { AnyExceptionFilter } from './middleware/AnyExceptionFilter';
 import { HttpExceptionFilter } from './middleware/ExceptionFilter';
 import { AuthenInterceptor } from './middleware/AuthenInterceptor';
+import SwaggerSetting from './swagger';
+import { Logger } from './middleware/Logger';
+declare const module: any;
 
 async function createServer() {
   const port = Project.PORT;
   const expressApp = require('express')();
   const server = require('http').createServer(expressApp);
-  const app = await NestFactory.create(AppModule, expressApp);
+  const app = await NestFactory.create(AppModule, expressApp, {
+    logger: new Logger(),
+    cors: true,
+  });
+
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new AnyExceptionFilter(), new HttpExceptionFilter());
   app.useGlobalInterceptors(new AuthenInterceptor());
+  app.use(compression());
+  SwaggerSetting.init(app);
   await app.init();
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
   server.listen(port);
   server.on('error', onError);
-
   server.on('listening', () => {
     const addr = server.address();
     const bind =

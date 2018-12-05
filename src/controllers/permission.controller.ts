@@ -1,6 +1,8 @@
 import { Get, Controller, Headers } from '@nestjs/common';
 import { PermissionService } from '../app/business/permission.business';
+import { ApiUseTags } from '@nestjs/swagger';
 
+@ApiUseTags('permissions')
 @Controller('permission')
 class PermissionController {
   constructor(private readonly appService: PermissionService) {}

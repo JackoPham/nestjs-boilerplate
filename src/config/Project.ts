@@ -46,11 +46,17 @@ interface IProject {
     };
   };
 }
-
+function capitalize(value) {
+  if (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+  return '';
+}
 class Project {
   static getConfiguration() {
     // Get the current config
-    const envConfig = require(`./env/${process.env.NODE_ENV}`);
+    const mode = capitalize(process.env.NODE_ENV);
+    const envConfig = require(`./env/${mode}`);
     const config = {
       ...Default,
       ...envConfig.default,

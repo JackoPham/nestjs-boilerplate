@@ -10,37 +10,34 @@ const dbconfig: PostgresConnectionOptions = {
   port: db.PORT,
   username: db.USERNAME,
   password: db.PASSWORD,
-  database: db.DB_NAME,
   synchronize: false,
-  logging: true,
+  logging: false,
   logger: 'file',
   entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`],
 };
-const dbconfigDevice: PostgresConnectionOptions = {
-  type: 'postgres',
-  host: dbDevice.HOST,
-  port: dbDevice.PORT,
-  username: dbDevice.USERNAME,
-  password: dbDevice.PASSWORD,
-  database: dbDevice.DB_NAME,
-  synchronize: false,
-  logging: true,
-  logger: 'file',
-  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`],
-};
+// const dbconfigDevice: PostgresConnectionOptions = {
+//   type: 'postgres',
+//   host: dbDevice.HOST,
+//   port: dbDevice.PORT,
+//   username: dbDevice.USERNAME,
+//   password: dbDevice.PASSWORD,
+//   database: dbDevice.DB_NAME,
+//   synchronize: false,
+//   logging: true,
+//   logger: 'file',
+//   entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`],
+// };
 export const databaseProviders = [
   {
     provide: 'DbConnectionToken',
     useFactory: async () =>
-      await createConnection(dbconfig)
+      await createConnection({ ...dbconfig, database: db.DB_NAME })
         .then(connection => {
           console.info(
-            '\x1b[45m',
+            '\x1b[32m',
             `Database is connected with host http://${
               connection.options['host']
-            }:${connection.options['port']}/dbName:${
-              connection.options['database']
-            }`,
+            }:${connection.options['port']}[${connection.options['database']}]`,
             '\x1b[0m'
           );
           return connection;
@@ -53,15 +50,13 @@ export const databaseProviders = [
   {
     provide: 'DbDeviceConnectionToken',
     useFactory: async () =>
-      await createConnection(dbconfigDevice)
+      await createConnection({ ...dbconfig, database: dbDevice.DB_NAME })
         .then(connection => {
           console.info(
-            '\x1b[45m',
+            '\x1b[32m',
             `Database is connected with host http://${
               connection.options['host']
-            }:${connection.options['port']}/dbName:${
-              connection.options['database']
-            }`,
+            }:${connection.options['port']}[${connection.options['database']}]`,
             '\x1b[0m'
           );
           return connection;

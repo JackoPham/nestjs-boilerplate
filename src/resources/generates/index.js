@@ -87,20 +87,4 @@ module.exports = plop => {
             }
         ]
     });
-    // plop.addHelper('upperCase', function(text) {
-    //     console.log('text ==> ', text);
-    //     return text.toUpperCase();
-    // });
-    // plop.setActionType('customAction', (answers, config) => {
-    //     console.log('config ==> ', answers, config);
-    //     // const folderPath = `${path.join(
-    //     //     __dirname,
-    //     //     '/../../app/',
-    //     //     config.path,
-    //     //     plop.getHelper('properCase')(answers.name),
-    //     //     '**.js',
-    //     // )}`;
-    //     // exec(`npm run prettify -- "${folderPath}"`);
-    //     return folderPath;
-    // });
 };
