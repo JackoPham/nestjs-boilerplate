@@ -9,7 +9,6 @@ import { AuthenInterceptor } from './middleware/AuthenInterceptor';
 import SwaggerSetting from './swagger';
 import { Logger } from './middleware/Logger';
 import { ValidationPipe } from '@nestjs/common';
-declare const module: any;
 
 async function createServer() {
   const port = Project.PORT;
@@ -27,10 +26,6 @@ async function createServer() {
   app.use(compression());
   SwaggerSetting.init(app);
   await app.init();
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => app.close());
-  }
   server.listen(port);
   server.on('error', onError);
   server.on('listening', () => {

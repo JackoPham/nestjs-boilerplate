@@ -3,10 +3,12 @@ import * as os from 'os';
 import Project from './config/Project';
 import createServer from './system/main';
 import 'reflect-metadata';
+import ServiceSystem from './system/ServiceSystem';
 
 const proto = process.env.HTTPS ? 'https' : 'http';
 if (process.env.SINGLE_THREAD) {
   createServer();
+  startService();
   console.log('\x1b[34m', 'Single thread', '\x1b[0m');
   console.log(
     '\x1b[32m',
@@ -40,6 +42,11 @@ if (process.env.SINGLE_THREAD) {
     // Workers can share any TCP connection
     // In this case it is an HTTP server
     createServer();
+    startService();
     console.log(`Worker ${process.pid} is started`);
   }
+}
+
+function startService() {
+  ServiceSystem.initServer();
 }

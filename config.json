@@ -45,7 +45,7 @@
       "PASSWORD": ""
     },
     "SERVICE": {
-      "POSTGRES_DB": true,
+      "POSTGRES_DB": false,
       "REDIS": true,
       "RABBITMQ": false,
       "EVENTSTORE": false

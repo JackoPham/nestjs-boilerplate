@@ -5,6 +5,7 @@ import { AuthGuard } from '../system/guard/auth.guard';
 import { Authorized } from '../system/decorator/roles.decorator';
 
 @Controller('category')
+@UseGuards(AuthGuard)
 class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
@@ -14,6 +15,7 @@ class CategoryController {
   }
 
   @Post('create')
+  @Authorized()
   async create(@Body() body: Category) {
     try {
       const data = await this.categoryService.create(body);
