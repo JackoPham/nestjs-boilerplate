@@ -29,6 +29,7 @@
     "@nestjs/core": "^5.4.0",
     "@nestjs/swagger": "^2.5.1",
     "@nestjs/typeorm": "^5.2.2",
+    "class-transformer": "^0.2.0",
     "compression": "^1.7.3",
     "pg": "^7.7.1",
     "reflect-metadata": "^0.1.12",
@@ -43,10 +44,12 @@
     "@types/jest": "^23.3.1",
     "@types/node": "^10.7.1",
     "@types/supertest": "^2.0.5",
-    "aluha-ezcode-helper": "^1.1.4",
+    "aluha-ezcode-helper": "^1.1.5",
+    "class-validator": "^0.9.1",
     "fs-extra": "^7.0.1",
     "jest": "^23.5.0",
     "jsonwebtoken": "^8.4.0",
+    "linq": "^3.1.1",
     "node-plop": "^0.16.0",
     "nodemon": "^1.18.3",
     "npm-run-all": "^4.1.5",
@@ -64,7 +67,11 @@
     "webpack-node-externals": "^1.7.2"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "json", "ts"],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
     "rootDir": "src",
     "testRegex": ".spec.ts$",
     "transform": {

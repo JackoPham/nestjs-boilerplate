@@ -8,6 +8,7 @@ import { HttpExceptionFilter } from './middleware/ExceptionFilter';
 import { AuthenInterceptor } from './middleware/AuthenInterceptor';
 import SwaggerSetting from './swagger';
 import { Logger } from './middleware/Logger';
+import { ValidationPipe } from '@nestjs/common';
 declare const module: any;
 
 async function createServer() {
@@ -22,6 +23,7 @@ async function createServer() {
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new AnyExceptionFilter(), new HttpExceptionFilter());
   app.useGlobalInterceptors(new AuthenInterceptor());
+  app.useGlobalPipes(new ValidationPipe());
   app.use(compression());
   SwaggerSetting.init(app);
   await app.init();

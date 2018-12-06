@@ -12,12 +12,16 @@ export class AnyExceptionFilter implements ExceptionFilter {
     if (msgData !== '{}') {
       LogHelper.writeLog(
         '',
-        `${request.method} ${request.originalUrl}\n${msgData}\n`
+        `AnyExceptionFilter.\n medthod: ${request.method} url: ${
+          request.originalUrl
+        }\nerror: ${msgData}\n`
       );
     } else {
       LogHelper.writeLog(
         '',
-        `${request.method} ${request.originalUrl}\n${exception.toString()}\n`
+        `AnyExceptionFilter.\n medthod: ${request.method} url: ${
+          request.originalUrl
+        }\nerror: ${msgData}\n`
       );
     }
     response.status(status).json({

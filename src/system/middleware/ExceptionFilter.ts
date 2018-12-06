@@ -16,12 +16,15 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const msgData = JSON.stringify(exception);
     LogHelper.writeLog(
       '',
-      `${request.method} ${request.originalUrl}\n${msgData}\n`
+      `AnyExceptionFilter.\n medthod: ${request.method} url: ${
+        request.originalUrl
+      }\nerror: \n${msgData}\n`
     );
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
+      error: exception.message,
     });
   }
 }
