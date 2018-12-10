@@ -1,12 +1,13 @@
 import { Connection } from 'typeorm';
 import {{ properCase name }} from '../entity/{{ lowerCase name }}.entity';
+import DataBaseConstant from '../../system/enums/database.enum';
 
 export const {{ lowerCase name }}Providers = [
   {
-    provide: '{{ properCase name }}RepositoryToken',
+    provide: DataBaseConstant.{{ constantCase provider }},
     useFactory: (connection: Connection, errr: any) => {
       return connection.getRepository({{ properCase name }});
     },
-    inject: ['DbConnectionToken'],
+    inject: [DataBaseConstant.{{ constantCase database }}],
   },
 ];
