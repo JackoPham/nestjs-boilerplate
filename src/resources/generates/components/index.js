@@ -215,7 +215,7 @@ module.exports = {
         if (line.indexOf('// PROVIDER') >= 0 && contentOrigin.indexOf(data.provider.toUpperCase()) < 0) {
           contentMesage =
             contentMesage +
-            `\tstatic readonly ${data.provider.toUpperCase()}: string = '${
+            `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${
               data.provider
             }RepositoryToken'` +
             ';\r\n';

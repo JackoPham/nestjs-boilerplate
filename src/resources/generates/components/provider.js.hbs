@@ -4,7 +4,7 @@ import DataBaseConstant from '../../system/enums/database.enum';
 
 export const {{ lowerCase name }}Providers = [
   {
-    provide: DataBaseConstant.{{ constantCase provider }},
+    provide: DataBaseConstant.{{ constantCase provider }}_PROVIDER,
     useFactory: (connection: Connection, errr: any) => {
       return connection.getRepository({{ properCase name }});
     },
