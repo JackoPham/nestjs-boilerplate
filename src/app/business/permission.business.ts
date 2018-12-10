@@ -1,11 +1,12 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Permission } from '../entity/permission.entity';
 import PermissionRepository from '../repository/permission.repository';
+import DataBaseConstant from '../../system/enums/database.enum';
 
 @Injectable()
 export class PermissionService {
   constructor(
-    @Inject('PermissionRepositoryToken')
+    @Inject(DataBaseConstant.PERMISSION_PROVIDER)
     private readonly permissionRepo: PermissionRepository
   ) {}
 

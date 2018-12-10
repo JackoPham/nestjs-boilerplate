@@ -3,11 +3,12 @@ import Category from '../entity/category.entity';
 import CategoryRepository from '../repository/category.repository';
 import { Message } from '../model/common/Message';
 import { CheckingHelper } from 'aluha-ezcode-helper';
+import DataBaseConstant from '../../system/enums/database.enum';
 
 @Injectable()
 export class CategoryService {
   constructor(
-    @Inject('CategoryRepositoryToken')
+    @Inject(DataBaseConstant.CATEGORY_PROVIDER)
     private readonly categoryRepository: CategoryRepository
   ) {}
 

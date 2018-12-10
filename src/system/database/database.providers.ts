@@ -1,6 +1,7 @@
 import { createConnection } from 'typeorm';
 import Project from '../../config/Project';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import DataBaseConstant from 'src/system/enums/database.enum';
 const db = Project.DATABASES.find(db => db.NAME === 'default')!;
 const dbDevice = Project.DATABASES.find(db => db.NAME === 'device')!;
 
@@ -29,7 +30,7 @@ const dbconfig: PostgresConnectionOptions = {
 // };
 export const databaseProviders = [
   {
-    provide: 'DbConnectionToken',
+    provide: DataBaseConstant.AUTHEN,
     useFactory: async () =>
       await createConnection({ ...dbconfig, database: db.DB_NAME })
         .then(connection => {
@@ -48,7 +49,7 @@ export const databaseProviders = [
         }),
   },
   {
-    provide: 'DbDeviceConnectionToken',
+    provide: DataBaseConstant.DEVICE,
     useFactory: async () =>
       await createConnection({ ...dbconfig, database: dbDevice.DB_NAME })
         .then(connection => {

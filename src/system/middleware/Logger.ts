@@ -2,9 +2,7 @@ import { LoggerService } from '@nestjs/common';
 import { LogHelper } from 'aluha-ezcode-helper';
 
 export class Logger implements LoggerService {
-  log(message: string) {
-    console.log(message);
-  }
+  log(message: string) {}
   error(message: string, trace: string) {
     LogHelper.writeLog('', `Error: ${message}\n`);
   }
