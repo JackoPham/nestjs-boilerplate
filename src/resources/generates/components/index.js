@@ -195,6 +195,13 @@ module.exports = {
       }
     }
 
+    capitalize = function(value) {
+      if (value) {
+        return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+      return '';
+    };
+
     let fileTemplate = '../../../system/enums/database.enum.ts';
     const fie = path.join(__dirname, fileTemplate);
     if (fs.statSync(fie)) {
@@ -204,20 +211,26 @@ module.exports = {
       for (let line of lines) {
         line = line.replace(/\n|\r/g, '');
         contentMesage = contentMesage + line + '\r\n';
-        if (line.indexOf('// Database') >= 0 && contentOrigin.indexOf(data.database.toUpperCase()) < 0) {
+        if (
+          line.indexOf('// Database') >= 0 &&
+          contentOrigin.indexOf(data.database.toUpperCase()) < 0
+        ) {
           contentMesage =
             contentMesage +
-            `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${
+            `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
               data.database
-            }Connection'` +
+            )}Connection'` +
             ';\r\n';
         }
-        if (line.indexOf('// PROVIDER') >= 0 && contentOrigin.indexOf(data.provider.toUpperCase()) < 0) {
+        if (
+          line.indexOf('// PROVIDER') >= 0 &&
+          contentOrigin.indexOf(data.provider.toUpperCase()) < 0
+        ) {
           contentMesage =
             contentMesage +
-            `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${
+            `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
               data.provider
-            }RepositoryToken'` +
+            )}RepositoryToken'` +
             ';\r\n';
         }
       }
