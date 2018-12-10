@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import  {{ properCase name }}  from '../entity/{{ lowerCase name }}.entity';
 import {{ properCase name }}Repository from '../repository/{{ lowerCase name }}.repository';
+import DataBaseConstant from '../../system/enums/database.enum';
 
 @Injectable()
 export class {{ properCase name }}Service {
@@ -18,7 +19,7 @@ export class {{ properCase name }}Service {
   }
   async findAll(): Promise<{{ properCase name }}[]> {
     try {
-      const data = await this.{{ lowerCase name }}Repo.find();
+      const data = await this.{{ lowerCase name }}Repository.find();
       return data;
     } catch (error) {
       throw error;
