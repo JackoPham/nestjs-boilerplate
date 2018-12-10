@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "rebuild": "rimraf dist && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "watch:build": "tsc --watch",
     "watch:server": "NODE_ENV=Development SINGLE_THREAD=true nodemon './dist/server.js' --watch './dist'",
