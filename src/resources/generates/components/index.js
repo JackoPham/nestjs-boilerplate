@@ -222,9 +222,10 @@ module.exports = {
             )}Connection'` +
             ';\r\n';
         }
+        const provider = data.provider + '_PROVIDER';
         if (
           line.indexOf('// PROVIDER') >= 0 &&
-          contentOrigin.indexOf(data.provider.toUpperCase()) < 0
+          contentOrigin.indexOf(provider.toUpperCase()) < 0
         ) {
           contentMesage =
             contentMesage +
