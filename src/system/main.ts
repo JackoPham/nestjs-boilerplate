@@ -7,7 +7,7 @@ import { AnyExceptionFilter } from './middleware/AnyExceptionFilter';
 import { HttpExceptionFilter } from './middleware/ExceptionFilter';
 import { AuthenInterceptor } from './middleware/AuthenInterceptor';
 import SwaggerSetting from './swagger';
-import { Logger } from './middleware/Logger';
+import { LoggerService } from './middleware/AluhaLogger';
 import { ValidationPipe } from '@nestjs/common';
 
 async function createServer() {
@@ -15,7 +15,7 @@ async function createServer() {
   const expressApp = require('express')();
   const server = require('http').createServer(expressApp);
   const app = await NestFactory.create(AppModule, expressApp, {
-    logger: new Logger(),
+    logger: new LoggerService('Aluha-Backend'),
     cors: true,
   });
 
