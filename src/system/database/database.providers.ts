@@ -2,9 +2,10 @@ import { createConnection } from 'typeorm';
 import Project from '../../config/Project';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import DataBaseConstant from 'src/system/enums/database.enum';
+import * as chalk from 'chalk';
 const db = Project.DATABASES.find(db => db.NAME === 'default')!;
 const dbDevice = Project.DATABASES.find(db => db.NAME === 'device')!;
-
+const color = chalk.default;
 const dbconfig: PostgresConnectionOptions = {
   type: 'postgres',
   host: db.HOST,
@@ -35,11 +36,11 @@ export const databaseProviders = [
       await createConnection({ ...dbconfig, database: db.DB_NAME })
         .then(connection => {
           console.info(
-            '\x1b[32m',
-            `Database is connected with host http://${
-              connection.options['host']
-            }:${connection.options['port']}[${connection.options['database']}]`,
-            '\x1b[0m'
+            `Database is connected with host ${color.green(
+              `http://${connection.options['host']}:${
+                connection.options['port']
+              }`
+            )}[${color.yellow(connection.options['database'] + '')}]`
           );
           return connection;
         })
@@ -54,11 +55,11 @@ export const databaseProviders = [
       await createConnection({ ...dbconfig, database: dbDevice.DB_NAME })
         .then(connection => {
           console.info(
-            '\x1b[32m',
-            `Database is connected with host http://${
-              connection.options['host']
-            }:${connection.options['port']}[${connection.options['database']}]`,
-            '\x1b[0m'
+            `Database is connected with host ${color.green(
+              `http://${connection.options['host']}:${
+                connection.options['port']
+              }`
+            )}[${color.yellow(connection.options['database'] + '')}]`
           );
           return connection;
         })

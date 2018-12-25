@@ -9,7 +9,8 @@ import { AuthenInterceptor } from './middleware/AuthenInterceptor';
 import SwaggerSetting from './swagger';
 import { LoggerService } from './middleware/AluhaLogger';
 import { ValidationPipe } from '@nestjs/common';
-
+import * as chalk from 'chalk';
+const color = chalk.default;
 async function createServer() {
   const port = Project.PORT;
   const expressApp = require('express')();
@@ -32,7 +33,7 @@ async function createServer() {
     const addr = server.address();
     const bind =
       typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-    console.log('\x1b[35m', 'Listening on ' + bind, '\x1b[0m');
+    console.log(color.gray('Listening on ' + bind));
   });
 
   /**
