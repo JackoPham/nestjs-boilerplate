@@ -11,6 +11,7 @@ import { LoggerService } from './middleware/AluhaLogger';
 import { ValidationPipe } from '@nestjs/common';
 import * as chalk from 'chalk';
 const color = chalk.default;
+
 async function createServer() {
   const port = Project.PORT;
   const expressApp = require('express')();
@@ -58,7 +59,6 @@ async function createServer() {
       default:
         throw error;
     }
-    /* eslint-enable */
   }
 }
 export default createServer;
