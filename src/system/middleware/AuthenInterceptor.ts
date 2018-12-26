@@ -15,9 +15,11 @@ export class AuthenInterceptor implements NestInterceptor {
   ): Observable<any> | Promise<Observable<any>> {
     const ctx = context.switchToHttp();
     const request = ctx.getRequest();
-    const token = request.headers['authorization'];
-    if (token) request.headers['authorization'] = 'Authen:' + token;
-    else request.headers['authorization'] = 'none';
+    if (request && request.headers) {
+      const token = request.headers['authorization'];
+      if (token) request.headers['authorization'] = 'Authen:' + token;
+      else request.headers['authorization'] = 'none';
+    }
     const now = Date.now();
     return stream$.do(() => console.log(`After... ${Date.now() - now}ms`));
   }

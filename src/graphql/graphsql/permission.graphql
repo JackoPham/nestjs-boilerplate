@@ -1,0 +1,24 @@
+type Query {
+  getAll:[Permission]
+}
+
+type Mutation {
+  createCat(createCatInput: CreateCatInput): Permission
+}
+
+type Subscription {
+  catCreated: Permission
+}
+
+type Permission {
+  id: Int
+  name: String
+  controller: String,
+  actionName: String,
+  method: String
+}
+
+input CreateCatInput {
+  name: String
+  age: Int
+}
