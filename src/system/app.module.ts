@@ -5,7 +5,7 @@ import { ProductModule } from '../app/module/product.module';
 import { GraphQLModule } from '@nestjs/graphql';
 // import { AuthenMiddleware } from './middleware/AuthenMiddleware';
 import { CategoryModule } from '../app/module/category.module';
-import { PermissionGqlModule } from '../graphql/modules/permission.gql.module';
+// import PermissionController from '../controllers/permission.controller';
 
 @Module({
   imports: [
@@ -20,6 +20,6 @@ import { PermissionGqlModule } from '../graphql/modules/permission.gql.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    // consumer.apply(AuthenMiddleware).forRoutes(SystemController);
+    // consumer.apply(AuthenMiddleware).forRoutes(PermissionController);
   }
 }

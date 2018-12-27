@@ -1,7 +1,7 @@
 import { createConnection } from 'typeorm';
 import Project from '../../config/Project';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
-import DataBaseConstant from 'src/system/enums/database.enum';
+import DataBaseConstant from '../../system/enums/database.enum';
 import * as chalk from 'chalk';
 const db = Project.DATABASES.find(db => db.NAME === 'default')!;
 const dbDevice = Project.DATABASES.find(db => db.NAME === 'device')!;
