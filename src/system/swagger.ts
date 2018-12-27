@@ -1,7 +1,7 @@
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import SystemController from 'src/controllers/system.controller';
 import { ProductModule } from '../app/module/product.module';
 import { PermissionModule } from '../app/module/permission.module';
+import { SystemModule } from '../app/module/system.module';
 
 export default class SwaggerSetting {
   static init(app: any) {
@@ -12,7 +12,7 @@ export default class SwaggerSetting {
       .setBasePath('api')
       .build();
     const document = SwaggerModule.createDocument(app, options, {
-      include: [ProductModule],
+      include: [ProductModule, SystemModule],
     });
     SwaggerModule.setup('docs/product', app, document);
 

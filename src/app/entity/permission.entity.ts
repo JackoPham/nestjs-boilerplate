@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { ApiModelProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Permission {
@@ -6,9 +7,11 @@ export class Permission {
   id: number;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
+  @ApiModelProperty()
   module: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
+  @ApiModelProperty()
   name: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })

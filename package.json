@@ -5,7 +5,7 @@
   "author": "tuanpt1702@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run lint && ./node_modules/.bin/grunt sync && tsc",
     "rebuild": "rimraf dist && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "watch:build": "tsc --watch",
@@ -73,7 +73,10 @@
     "webpack-cli": "^3.1.2",
     "webpack-node-externals": "^1.7.2",
     "winston": "^3.1.0",
-    "winston-daily-rotate-file": "^3.5.1"
+    "winston-daily-rotate-file": "^3.5.1",
+    "grunt": "^1.0.3",
+    "grunt-exec": "^3.0.0",
+    "grunt-sync": "^0.8.0"
   },
   "jest": {
     "moduleFileExtensions": [

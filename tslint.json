@@ -1,6 +1,6 @@
 {
     "rules": {
-        "no-unnecessary-type-assertion": true,
+        "no-unnecessary-type-assertion": false,
         "array-type": [
             true,
             "array"
@@ -29,7 +29,6 @@
                 ]
             ]
         },
-        "boolean-trivia": true,
         "class-name": true,
         "comment-format": [
             true,
@@ -39,11 +38,10 @@
             true,
             "ignore-same-line"
         ],
-        "debug-assert": true,
         "indent": [
             true,
             "spaces",
-            2
+            4
         ],
         "interface-name": [
             true,
@@ -51,16 +49,10 @@
         ],
         "interface-over-type-literal": true,
         "jsdoc-format": false,
-        "linebreak-style": [false, "CRLF"],
-        "next-line": [
-            true,
-            "check-catch",
-            "check-else"
+        "linebreak-style": [
+            false,
+            "CRLF"
         ],
-        "no-bom": true,
-        "no-double-space": true,
-        "no-in-operator": true,
-        "no-increment-decrement": true,
         "no-inferrable-types": true,
         "no-internal-module": true,
         "no-null-keyword": false,
@@ -69,11 +61,9 @@
             true,
             "ignore-template-strings"
         ],
-        "no-type-assertion-whitespace": true,
         "no-unnecessary-qualifier": true,
         "no-var-keyword": true,
         "object-literal-shorthand": true,
-        "object-literal-surrounding-space": true,
         "one-line": [
             true,
             "check-open-brace",
@@ -82,7 +72,7 @@
         "prefer-const": true,
         "quotemark": [
             true,
-            "single", 
+            "single",
             "avoid-escape"
         ],
         "semicolon": [
@@ -92,7 +82,6 @@
         ],
         "space-within-parens": true,
         "triple-equals": true,
-        "type-operator-spacing": true,
         "typedef-whitespace": [
             true,
             {
@@ -143,7 +132,7 @@
         "no-debugger": false,
         "no-empty-interface": false,
         "no-eval": false,
-        "no-empty":false,
+        "no-empty": false,
         "no-object-literal-type-assertion": false,
         "no-shadowed-variable": false,
         "no-submodule-imports": false,
