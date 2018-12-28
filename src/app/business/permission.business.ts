@@ -25,4 +25,9 @@ export class PermissionService {
       throw error;
     }
   }
+
+  create(data: any) {
+    const a = JSON.parse('sfsdf');
+    return data;
+  }
 }

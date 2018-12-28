@@ -11,6 +11,11 @@ module.exports = function(grunt) {
                         cwd: 'src',
                         src: ['keys/**/*'],
                         dest: 'dist'
+                    },
+                    {
+                        cwd: 'src',
+                        src: ['graphql/**/*.graphql'],
+                        dest: 'dist'
                     }
                 ],
                 verbose: true, // Default: false

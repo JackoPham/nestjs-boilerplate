@@ -1,9 +1,9 @@
 type Query {
-  getAll:[Permission]
+  getAll: [Permission]
 }
 
 type Mutation {
-  createCat(createCatInput: CreateCatInput): Permission
+  create(createInput: CreateInput): Permission
 }
 
 type Subscription {
@@ -13,12 +13,14 @@ type Subscription {
 type Permission {
   id: Int
   name: String
-  controller: String,
-  actionName: String,
+  controller: String
+  actionName: String
   method: String
 }
 
-input CreateCatInput {
+input CreateInput {
   name: String
-  age: Int
+  controller: String
+  actionName: String
+  method: String
 }

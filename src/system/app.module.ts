@@ -1,11 +1,19 @@
-import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import {
+  Module,
+  NestModule,
+  MiddlewareConsumer,
+  RequestMethod,
+} from '@nestjs/common';
 import { SystemModule } from '../app/module/system.module';
 import { PermissionModule } from '../app/module/permission.module';
 import { ProductModule } from '../app/module/product.module';
-import { GraphQLModule } from '@nestjs/graphql';
-// import { AuthenMiddleware } from './middleware/AuthenMiddleware';
+import {
+  GraphQLModule,
+  GraphQLFactory,
+  GqlModuleOptions,
+} from '@nestjs/graphql';
 import { CategoryModule } from '../app/module/category.module';
-// import PermissionController from '../controllers/permission.controller';
+import { ApolloServer } from 'apollo-server-express';
 
 @Module({
   imports: [
@@ -15,6 +23,12 @@ import { CategoryModule } from '../app/module/category.module';
     CategoryModule,
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],
+      installSubscriptionHandlers: true,
+      context: ({ req }) => {
+        return {
+          request: req,
+        };
+      },
     }),
   ],
 })

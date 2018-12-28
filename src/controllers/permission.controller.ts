@@ -18,7 +18,7 @@ class PermissionController {
   }
   @Post('create')
   async create(@Body() data: Permission) {
-    return await this.appService.findAll();
+    return await this.appService.create(data);
   }
 }
 
