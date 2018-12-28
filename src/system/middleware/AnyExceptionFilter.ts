@@ -1,6 +1,5 @@
 import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
 import { LogHelper } from 'aluha-ezcode-helper';
-import { LoggerService } from './Logger';
 
 @Catch()
 export class AnyExceptionFilter implements ExceptionFilter {
@@ -11,14 +10,14 @@ export class AnyExceptionFilter implements ExceptionFilter {
     const status = 503;
     const msgData = JSON.stringify(exception);
     if (msgData !== '{}') {
-      LoggerService.error(
+      LogHelper.writeLog(
         '',
         `AnyExceptionFilter.\n medthod: ${request.method} url: ${
           request.originalUrl
         }\nerror: ${msgData}\n`
       );
     } else {
-      LoggerService.error(
+      LogHelper.writeLog(
         '',
         `AnyExceptionFilter.\n medthod: ${request.method} url: ${
           request.originalUrl

@@ -1,5 +1,7 @@
 // import * as winston from 'winston';
 import * as path from 'path';
+import * as fs from 'fs';
+import * as fsextra from 'fs-extra';
 import * as chalk from 'chalk';
 import * as PrettyError from 'pretty-error'; // it's really handy to make your life easier
 import { LoggerOptions } from 'winston';
@@ -10,27 +12,30 @@ require('winston-daily-rotate-file');
 const myFormat = printf(info => {
   return `${info.timestamp} \n ${info.level}: ${info.message}`;
 });
-
-const transport = new winston.transports.DailyRotateFile({
-  filename: path.join('logs', 'application-%DATE%.log'),
-  datePattern: 'YYYY-MM-DD',
-  zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '14d',
+const fileLogName = path.join(
+  'logs',
+  'application-' + new Date().toLocaleDateString() + '.log'
+);
+const transport = new winston.transports.File({
+  filename: fileLogName,
 });
 const prettyError = new PrettyError();
-
 export class LoggerService {
   public static loggerOptions: LoggerOptions = {
     format: combine(timestamp(), myFormat),
     transports: [transport],
   };
   static logger = (winston as any).createLogger(LoggerService.loggerOptions);
-
+  static checkExist() {
+    if (!fs.existsSync(fileLogName)) {
+      fsextra.ensureFileSync(fileLogName);
+    }
+  }
   static configGlobal(options?: LoggerOptions) {
     this.loggerOptions = options;
   }
   static error(message: string, trace?: any): void {
+    LoggerService.checkExist();
     const currentDate = new Date();
     LoggerService.logger.error(
       `${message} => (${trace || 'trace not provided !'})`,

@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, HTTP_SERVER_REF } from '@nestjs/core';
 import * as compression from 'compression';
 import { AppModule } from './app.module';
 import Project from '../config/Project';
@@ -33,7 +33,6 @@ async function createServer() {
     logger: new LoggerService('Aluha-Backend'),
     cors: true,
   });
-
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new AnyExceptionFilter(), new HttpExceptionFilter());
   app.useGlobalInterceptors(new AuthenInterceptor());
