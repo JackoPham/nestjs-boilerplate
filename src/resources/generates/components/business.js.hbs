@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@nestjs/common';
 import  {{ properCase name }}  from '../entity/{{ lowerCase name }}.entity';
 import {{ properCase name }}Repository from '../repository/{{ lowerCase name }}.repository';
-import {{ properCase name }}Service from './interfaces/I{{ properCase name }}.service';
+import {{ properCase name }}Service from './interfaces/I{{ lowerCase name }}.service';
 import DataBaseConstant from '../../system/enums/database.enum';
 
 @Injectable()
-export class {{ properCase name }}Service implements {{ properCase name }}Service  {
+export class {{ properCase name }}Service implements I{{ properCase name }}Service  {
   constructor(
     @Inject(DataBaseConstant.{{ constantCase provider }}_PROVIDER)
     private readonly {{ lowerCase name }}Repository: {{ properCase name }}Repository
