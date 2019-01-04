@@ -15,21 +15,21 @@ const fs = require('fs');
 const path = require('path');
 
 async function createServer() {
-  const keyFile = fs.readFileSync(
-    path.join(__dirname, '../keys/swap-order-selfsigned.key')
-  );
-  const certFile = fs.readFileSync(
-    path.join(__dirname, '../keys/swap-order-selfsigned.crt')
-  );
+  // const keyFile = fs.readFileSync(
+  //   path.join(__dirname, '../keys/swap-order-selfsigned.key')
+  // );
+  // const certFile = fs.readFileSync(
+  //   path.join(__dirname, '../keys/swap-order-selfsigned.crt')
+  // );
   const proto = process.env.HTTPS ? 'https' : 'http';
   const port = Project.PORT;
   const expressApp = require('express')();
-  const server = require(proto).createServer(expressApp);
+  const server = require('http').createServer(expressApp);
   const app = await NestFactory.create(AppModule, expressApp, {
-    httpsOptions: {
-      key: keyFile,
-      cert: certFile,
-    },
+    // httpsOptions: {
+    //   key: keyFile,
+    //   cert: certFile,
+    // },
     logger: new LoggerService('Aluha-Backend'),
     cors: true,
   });

@@ -7,13 +7,8 @@ import {
 import { SystemModule } from '../app/module/system.module';
 import { PermissionModule } from '../app/module/permission.module';
 import { ProductModule } from '../app/module/product.module';
-import {
-  GraphQLModule,
-  GraphQLFactory,
-  GqlModuleOptions,
-} from '@nestjs/graphql';
+import { GraphQLModule } from '@nestjs/graphql';
 import { CategoryModule } from '../app/module/category.module';
-import { ApolloServer } from 'apollo-server-express';
 
 @Module({
   imports: [

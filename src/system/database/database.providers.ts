@@ -15,7 +15,7 @@ const dbconfig: PostgresConnectionOptions = {
   synchronize: false,
   logging: false,
   logger: 'file',
-  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`],
+  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`], // not working if using webpack , using import to use with webpack
 };
 // const dbconfigDevice: PostgresConnectionOptions = {
 //   type: 'postgres',
