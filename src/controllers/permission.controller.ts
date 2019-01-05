@@ -1,7 +1,7 @@
 import { Get, Controller, Headers, Post, Body } from '@nestjs/common';
-import { PermissionService } from '../app/business/permission.business';
+import { PermissionService } from '@business/permission.business';
 import { ApiUseTags } from '@nestjs/swagger';
-import Permission from '../app/entity/permission.entity';
+import Permission from '@entity/permission.entity';
 
 @ApiUseTags('permissions')
 @Controller('permission')

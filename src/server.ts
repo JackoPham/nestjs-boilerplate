@@ -1,9 +1,9 @@
 import * as cluster from 'cluster';
 import * as os from 'os';
-import Project from './config/Project';
-import createServer from './system/main';
+import Project from '@config/Project';
+import createServer from '@system/main';
 import 'reflect-metadata';
-import ServiceSystem from './system/ServiceSystem';
+import ServiceSystem from '@system/ServiceSystem';
 
 const proto = process.env.HTTPS ? 'https' : 'http';
 if (process.env.SINGLE_THREAD) {

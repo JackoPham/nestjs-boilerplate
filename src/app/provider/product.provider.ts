@@ -1,6 +1,6 @@
 import { Connection } from 'typeorm';
-import Product from '../entity/product.entity';
-import DataBaseConstant from '../../system/enums/database.enum';
+import Product from '@entity/product.entity';
+import DataBaseConstant from '@system/enums/database.enum';
 
 export const productProviders = [
   {

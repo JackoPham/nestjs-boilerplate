@@ -1,8 +1,8 @@
 import { Injectable, Inject, UseFilters } from '@nestjs/common';
-import Permission from '../entity/permission.entity';
-import PermissionRepository from '../repository/permission.repository';
-import DataBaseConstant from '../../system/enums/database.enum';
-import { AnyExceptionFilter } from '../../system/middleware/AnyExceptionFilter';
+import Permission from '@entity/permission.entity';
+import PermissionRepository from '@repository/permission.repository';
+import DataBaseConstant from '@system/enums/database.enum';
+import { AnyExceptionFilter } from '@system/middleware/AnyExceptionFilter';
 
 @Injectable()
 @UseFilters(AnyExceptionFilter)

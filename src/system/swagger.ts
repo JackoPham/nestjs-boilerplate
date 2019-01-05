@@ -1,7 +1,7 @@
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ProductModule } from '../app/module/product.module';
-import { PermissionModule } from '../app/module/permission.module';
-import { SystemModule } from '../app/module/system.module';
+import { ProductModule } from '@module/product.module';
+import { PermissionModule } from '@module/permission.module';
+import { SystemModule } from '@module/system.module';
 
 export default class SwaggerSetting {
   static init(app: any) {

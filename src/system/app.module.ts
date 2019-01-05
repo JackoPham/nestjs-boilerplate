@@ -4,11 +4,11 @@ import {
   MiddlewareConsumer,
   RequestMethod,
 } from '@nestjs/common';
-import { SystemModule } from '../app/module/system.module';
-import { PermissionModule } from '../app/module/permission.module';
-import { ProductModule } from '../app/module/product.module';
+import { SystemModule } from '@module/system.module';
+import { PermissionModule } from '@module/permission.module';
+import { ProductModule } from '@module/product.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import { CategoryModule } from '../app/module/category.module';
+import { CategoryModule } from '@module/category.module';
 
 @Module({
   imports: [
