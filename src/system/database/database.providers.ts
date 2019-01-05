@@ -15,7 +15,7 @@ const dbconfig: PostgresConnectionOptions = {
   synchronize: false,
   logging: false,
   logger: 'file',
-  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`],
+  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`], // if want to build weback use import entity
 };
 // const dbconfigDevice: PostgresConnectionOptions = {
 //   type: 'postgres',

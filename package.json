@@ -23,7 +23,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "generate": "plop --plopfile src/resources/generates/index.js",
     "start:webpack": "SINGLE_THREAD=true node build/server.js",
-    "webpack": "rimraf build && webpack --config webpack.config.js"
+    "build:webpack": "rimraf build && webpack --config webpack.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^5.4.0",
