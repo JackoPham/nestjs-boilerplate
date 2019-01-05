@@ -11,9 +11,8 @@ import { LoggerService } from './middleware/AluhaLogger';
 import { ValidationPipe } from '@nestjs/common';
 import * as chalk from 'chalk';
 const color = chalk.default;
-declare const module: any;
-// const fs = require('fs');
-// const path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 async function createServer() {
   // const keyFile = fs.readFileSync(
@@ -42,10 +41,6 @@ async function createServer() {
   SwaggerSetting.init(app);
   await app.init();
   server.listen(port);
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => app.close());
-  }
   server.on('error', onError);
   server.on('listening', () => {
     const addr = server.address();

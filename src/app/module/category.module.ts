@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import CategoryController from '../../controllers/category.controller';
-import { CategoryService } from '../../app/business/category.business';
-import { DatabaseModule } from '../../system/database/database.module';
-import { categoryProviders } from '../../app/provider/category.provider';
+import CategoryController from '@controllers/category.controller';
+import { CategoryService } from '@business/category.business';
+import { DatabaseModule } from '@system/database/database.module';
+import { categoryProviders } from '@provider/category.provider';
 
 @Module({
   imports: [DatabaseModule],

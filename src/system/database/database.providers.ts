@@ -1,8 +1,11 @@
 import { createConnection } from 'typeorm';
 import Project from '../../config/Project';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
-import DataBaseConstant from '../../system/enums/database.enum';
+import DataBaseConstant from '@system/enums/database.enum';
 import * as chalk from 'chalk';
+import Product from '@entity/product.entity';
+import Permission from '@entity/permission.entity';
+import Category from '@entity/category.entity';
 const db = Project.DATABASES.find(db => db.NAME === 'default')!;
 const dbDevice = Project.DATABASES.find(db => db.NAME === 'device')!;
 const color = chalk.default;
@@ -15,7 +18,7 @@ const dbconfig: PostgresConnectionOptions = {
   synchronize: false,
   logging: false,
   logger: 'file',
-  entities: [`${__dirname}/../../app/entity/*.entity{.ts,.js}`], // if want to build weback use import entity
+  entities: [Product, Permission, Category], // not working if using webpack , using import to use with webpack
 };
 // const dbconfigDevice: PostgresConnectionOptions = {
 //   type: 'postgres',

@@ -1,8 +1,8 @@
 import { Get, Controller, Body, Post, UseGuards } from '@nestjs/common';
-import { CategoryService } from '../app/business/category.business';
-import Category from '../app/entity/category.entity';
-import { AuthGuard } from '../system/guard/auth.guard';
-import { Authorized } from '../system/decorator/roles.decorator';
+import { CategoryService } from '@business/category.business';
+import Category from '@entity/category.entity';
+import { AuthGuard } from '@system/guard/auth.guard';
+import { Authorized } from '@system/decorator/roles.decorator';
 
 @Controller('category')
 @UseGuards(AuthGuard)

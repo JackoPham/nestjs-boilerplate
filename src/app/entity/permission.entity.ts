@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiModelProperty } from '@nestjs/swagger';
 
 @Entity()
-export class Permission {
+export default class Permission {
   @PrimaryGeneratedColumn({ type: 'int4' })
   id: number;
 

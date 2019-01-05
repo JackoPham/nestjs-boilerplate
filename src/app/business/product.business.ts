@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import Product from '../entity/product.entity';
-import ProductRepository from '../repository/product.repository';
-import DataBaseConstant from '../../system/enums/database.enum';
+import Product from '@entity/product.entity';
+import ProductRepository from '@repository/product.repository';
+import DataBaseConstant from '@system/enums/database.enum';
 
 @Injectable()
 export class ProductService {

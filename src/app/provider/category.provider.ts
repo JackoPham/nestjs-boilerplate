@@ -1,6 +1,6 @@
 import { Connection } from 'typeorm';
-import Category from '../entity/category.entity';
-import DataBaseConstant from '../../system/enums/database.enum';
+import Category from '@entity/category.entity';
+import DataBaseConstant from '@system/enums/database.enum';
 
 export const categoryProviders = [
   {

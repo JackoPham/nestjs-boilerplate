@@ -78,6 +78,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 - Authen Grahpql with guard.
 - Authen restApi
 - Get and create with graphql.
+- Run ok with alias ==> debug, ts-node, node, webpack (import enties)
 
 ## License
 
