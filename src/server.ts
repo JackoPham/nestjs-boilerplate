@@ -1,3 +1,4 @@
+require('module-alias/register');
 import * as cluster from 'cluster';
 import * as os from 'os';
 import Project from '@config/Project';

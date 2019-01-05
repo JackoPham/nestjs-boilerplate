@@ -1,4 +1,4 @@
-import { Connection, Repository } from 'typeorm';
+import { Connection } from 'typeorm';
 import Permission from '@entity/permission.entity';
 import DataBaseConstant from '@system/enums/database.enum';
 

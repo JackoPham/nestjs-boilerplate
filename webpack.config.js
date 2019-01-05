@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const tsconfigPathsToAlias = require('./tsconfig-path-to-webpack');
 
 module.exports = {
   entry: ['webpack/hot/poll?100', './src/server.ts'],
@@ -26,6 +27,7 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: tsconfigPathsToAlias(),
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   output: {
