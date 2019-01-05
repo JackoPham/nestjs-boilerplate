@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run lint && ./node_modules/.bin/grunt sync && tsc",
-    "rebuild": "rimraf dist && tsc",
+    "rebuild": "rimraf dist && npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "watch:build": "tsc --watch",
     "watch:server": "NODE_ENV=Development SINGLE_THREAD=true nodemon './dist/server.js' --watch './dist'",
