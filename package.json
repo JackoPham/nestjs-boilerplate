@@ -15,7 +15,7 @@
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && tsc",
-    "start:prod": "NODE_ENV=Development SINGLE_THREAD=true node dist/server.js",
+    "production": "NODE_ENV=Development SINGLE_THREAD=true node dist/server.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
