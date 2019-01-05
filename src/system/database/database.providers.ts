@@ -1,5 +1,5 @@
 import { createConnection } from 'typeorm';
-import Project from '../../config/Project';
+import Project from '@config/Project';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import DataBaseConstant from '@system/enums/database.enum';
 import * as chalk from 'chalk';
