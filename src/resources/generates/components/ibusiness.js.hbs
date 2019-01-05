@@ -1,9 +1,9 @@
 import {{{ properCase name }}} from '../../entity/{{ lowerCase name }}.entity';
 import { Message } from '../../model/common/Message';
 
-interface I{{ properCase name }}Business {
-    getList(name?: string, page?: number, limit?: number): Promise<{{ properCase name }}[]>;
+interface I{{ properCase name }}Service {
+    getList(): Promise<{{ properCase name }}[]>;
     create(data: {{ properCase name }}): Promise<Message | undefined>;
 }
 
-export default I{{ properCase name }}Business;
+export default I{{ properCase name }}Service;

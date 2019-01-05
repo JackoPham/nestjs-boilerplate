@@ -71,7 +71,7 @@ module.exports = {
           },
           {
             type: 'add',
-            path: '../../../src/app/business/{{lowerCase name}}.business.ts',
+            path: '../../../src/app/business/{{lowerCase name}}.service.ts',
             templateFile: './components/business.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
@@ -119,14 +119,14 @@ module.exports = {
         actions.push(
           {
             type: 'add',
-            path: '../../../src/app/business/{{lowerCase name}}.business.ts',
+            path: '../../../src/app/business/{{lowerCase name}}.service.ts',
             templateFile: './components/business.js.hbs',
             abortOnFail: true,
           },
           {
             type: 'add',
             path:
-              '../../../src/app/business/interfaces/I{{lowerCase name}}.business.ts',
+              '../../../src/app/business/interfaces/I{{lowerCase name}}.service.ts',
             templateFile: './components/ibusiness.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
@@ -201,43 +201,43 @@ module.exports = {
       }
       return '';
     };
-
-    let fileTemplate = '../../../system/enums/database.enum.ts';
-    const fie = path.join(__dirname, fileTemplate);
-    if (fs.statSync(fie)) {
-      let contentMesage = '';
-      const contentOrigin = fs.readFileSync(fie, 'utf8');
-      const lines = contentOrigin.split('\n');
-      for (let line of lines) {
-        line = line.replace(/\n|\r/g, '');
-        contentMesage = contentMesage + line + '\r\n';
-        if (
-          line.indexOf('// Database') >= 0 &&
-          contentOrigin.indexOf(data.database.toUpperCase()) < 0
-        ) {
-          contentMesage =
-            contentMesage +
-            `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
-              data.database
-            )}Connection'` +
-            ';\r\n';
+    if (data.provider !== 'none' && data.database !=='none') {
+      let fileTemplate = '../../../system/enums/database.enum.ts';
+      const fie = path.join(__dirname, fileTemplate);
+      if (fs.statSync(fie)) {
+        let contentMesage = '';
+        const contentOrigin = fs.readFileSync(fie, 'utf8');
+        const lines = contentOrigin.split('\n');
+        for (let line of lines) {
+          line = line.replace(/\n|\r/g, '');
+          contentMesage = contentMesage + line + '\r\n';
+          if (
+            line.indexOf('// Database') >= 0 &&
+            contentOrigin.indexOf(data.database.toUpperCase()) < 0
+          ) {
+            contentMesage =
+              contentMesage +
+              `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
+                data.database
+              )}Connection'` +
+              ';\r\n';
+          }
+          const provider = data.provider + '_PROVIDER';
+          if (
+            line.indexOf('// PROVIDER') >= 0 &&
+            contentOrigin.indexOf(provider.toUpperCase()) < 0
+          ) {
+            contentMesage =
+              contentMesage +
+              `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
+                data.provider
+              )}RepositoryToken'` +
+              ';\r\n';
+          }
         }
-        const provider = data.provider + '_PROVIDER';
-        if (
-          line.indexOf('// PROVIDER') >= 0 &&
-          contentOrigin.indexOf(provider.toUpperCase()) < 0
-        ) {
-          contentMesage =
-            contentMesage +
-            `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
-              data.provider
-            )}RepositoryToken'` +
-            ';\r\n';
-        }
+        fs.writeFileSync(fie, contentMesage);
       }
-      fs.writeFileSync(fie, contentMesage);
     }
-
     // actions.push({
     //     type: 'prettify',
     //     path: '/containers/',
