@@ -7,8 +7,7 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
   description: 'Add a other class',
-  prompts: [
-    {
+  prompts: [{
       type: 'list',
       name: 'type',
       message: 'Select the type:',
@@ -60,148 +59,148 @@ module.exports = {
     // Generate index.js and index.test.js
     const actions = [];
     switch (data.type) {
-      case 'All': {
-        actions.push(
-          {
+      case 'All':
+        {
+          actions.push({
             type: 'add',
             path: '../../../src/controllers/{{lowerCase name}}.controller.ts',
             templateFile: './components/controller.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          },
-          {
+          }, {
             type: 'add',
             path: '../../../src/app/business/{{lowerCase name}}.service.ts',
             templateFile: './components/business.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          },
-          {
+          }, {
             type: 'add',
             path: '../../../src/app/provider/{{lowerCase name}}.provider.ts',
             templateFile: './components/provider.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          },
-          {
+          }, {
             type: 'add',
             path: '../../../src/app/module/{{lowerCase name}}.module.ts',
             templateFile: './components/module.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          },
-          {
+          }, {
             type: 'add',
-            path:
-              '../../../src/app/business/interfaces/I{{lowerCase name}}.business.ts',
+            path: '../../../src/app/business/interfaces/I{{lowerCase name}}.business.ts',
             templateFile: './components/ibusiness.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          },
-          {
+          }, {
             type: 'add',
             path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
             templateFile: './components/entity.js.hbs',
             abortOnFail: true,
-          },
-          {
+          }, {
             type: 'add',
-            path:
-              '../../../src/app/repository/{{lowerCase name}}.repository.ts',
+            path: '../../../src/app/repository/{{lowerCase name}}.repository.ts',
             templateFile: './components/repository.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          }
-        );
-        break;
-      }
-      case 'Business': {
-        actions.push(
-          {
+          });
+          break;
+        }
+      case 'Business':
+        {
+          actions.push({
             type: 'add',
             path: '../../../src/app/business/{{lowerCase name}}.service.ts',
             templateFile: './components/business.js.hbs',
             abortOnFail: true,
-          },
-          {
+          }, {
             type: 'add',
             path:
               '../../../src/app/business/interfaces/I{{lowerCase name}}.service.ts',
             templateFile: './components/ibusiness.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
-          }
-        );
-        break;
-      }
-      case 'Entity': {
-        actions.push({
-          type: 'add',
-          path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
-          templateFile: './components/entity.js.hbs',
-          abortOnFail: true,
-          skipIfExists: true,
-        });
-        break;
-      }
-      case 'Controller': {
-        actions.push({
-          type: 'add',
-          path: '../../../src/controllers/{{lowerCase name}}.controller.ts',
-          templateFile: './components/controller.js.hbs',
-          abortOnFail: true,
-        });
-        break;
-      }
-      case 'Repository': {
-        actions.push({
-          type: 'add',
-          path: '../../../src/app/repository/{{lowerCase name}}.repository.ts',
-          templateFile: './components/repository.js.hbs',
-          abortOnFail: true,
-          skipIfExists: true,
-        });
-        break;
-      }
-      case 'Module': {
-        actions.push({
-          type: 'add',
-          path: '../../../src/app/module/{{lowerCase name}}.module.ts',
-          templateFile: './components/module.js.hbs',
-          abortOnFail: true,
-          skipIfExists: true,
-        });
-        break;
-      }
-      case 'Provider': {
-        actions.push({
-          type: 'add',
-          path: '../../../src/app/provider/{{lowerCase name}}.provider.ts',
-          templateFile: './components/provider.js.hbs',
-          abortOnFail: true,
-          skipIfExists: true,
-        });
-        break;
-      }
-      default: {
-        actions.push({
-          type: 'add',
-          path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
-          templateFile: './components/entity.js.hbs',
-          abortOnFail: true,
-          skipIfExists: true,
-        });
-        break;
-      }
+          });
+          break;
+        }
+      case 'Entity':
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
+            templateFile: './components/entity.js.hbs',
+            abortOnFail: true,
+            skipIfExists: true,
+          });
+          break;
+        }
+      case 'Controller':
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/controllers/{{lowerCase name}}.controller.ts',
+            templateFile: './components/controller.js.hbs',
+            abortOnFail: true,
+          });
+          break;
+        }
+      case 'Repository':
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/app/repository/{{lowerCase name}}.repository.ts',
+            templateFile: './components/repository.js.hbs',
+            abortOnFail: true,
+            skipIfExists: true,
+          });
+          break;
+        }
+      case 'Module':
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/app/module/{{lowerCase name}}.module.ts',
+            templateFile: './components/module.js.hbs',
+            abortOnFail: true,
+            skipIfExists: true,
+          });
+          break;
+        }
+      case 'Provider':
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/app/provider/{{lowerCase name}}.provider.ts',
+            templateFile: './components/provider.js.hbs',
+            abortOnFail: true,
+            skipIfExists: true,
+          });
+          break;
+        }
+      default:
+        {
+          actions.push({
+            type: 'add',
+            path: '../../../src/app/entity/{{lowerCase name}}.entity.ts',
+            templateFile: './components/entity.js.hbs',
+            abortOnFail: true,
+            skipIfExists: true,
+          });
+          break;
+        }
     }
 
-    capitalize = function(value) {
+    capitalize = function (value) {
       if (value) {
         return value.charAt(0).toUpperCase() + value.slice(1);
       }
       return '';
     };
+<<<<<<< HEAD
     if (data.provider !== 'none' && data.database !=='none') {
+=======
+
+    if (data.database !== 'none' && data.provider !== 'none') {
+>>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
       let fileTemplate = '../../../system/enums/database.enum.ts';
       const fie = path.join(__dirname, fileTemplate);
       if (fs.statSync(fie)) {
@@ -218,8 +217,13 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
+<<<<<<< HEAD
                 data.database
               )}Connection'` +
+=======
+              data.database
+            )}Connection'` +
+>>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
               ';\r\n';
           }
           const provider = data.provider + '_PROVIDER';
@@ -230,8 +234,13 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
+<<<<<<< HEAD
                 data.provider
               )}RepositoryToken'` +
+=======
+              data.provider
+            )}RepositoryToken'` +
+>>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
               ';\r\n';
           }
         }

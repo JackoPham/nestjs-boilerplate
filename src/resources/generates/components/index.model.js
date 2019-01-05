@@ -10,7 +10,7 @@ module.exports = {
         type: 'input',
         name: 'name',
         message: 'What should it be called?',
-        default: 'Form',
+        default: 'Aluha',
         // validate: value => {
         //     if (/.+/.test(value)) {
         //         let result = componentExists(value);
