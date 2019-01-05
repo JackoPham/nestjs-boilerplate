@@ -6,9 +6,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const {
-    exec
-} = require('child_process');
 const componentGenerator = require('./components/index.js');
 // const componentGeneratorController = require('./components/index.model.js');
 
