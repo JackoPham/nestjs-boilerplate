@@ -195,12 +195,7 @@ module.exports = {
       }
       return '';
     };
-<<<<<<< HEAD
     if (data.provider !== 'none' && data.database !=='none') {
-=======
-
-    if (data.database !== 'none' && data.provider !== 'none') {
->>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
       let fileTemplate = '../../../system/enums/database.enum.ts';
       const fie = path.join(__dirname, fileTemplate);
       if (fs.statSync(fie)) {
@@ -217,13 +212,8 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
-<<<<<<< HEAD
                 data.database
               )}Connection'` +
-=======
-              data.database
-            )}Connection'` +
->>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
               ';\r\n';
           }
           const provider = data.provider + '_PROVIDER';
@@ -234,13 +224,8 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
-<<<<<<< HEAD
                 data.provider
               )}RepositoryToken'` +
-=======
-              data.provider
-            )}RepositoryToken'` +
->>>>>>> 64f45bd07b0c93422a65a342bd07a9b53656f214
               ';\r\n';
           }
         }
