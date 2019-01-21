@@ -33,6 +33,11 @@
 ```bash
 $ npm install
 ```
+## Generate
+
+```bash
+$ npm run generate
+```
 
 ## Running the app
 
