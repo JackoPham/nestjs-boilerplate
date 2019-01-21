@@ -114,7 +114,8 @@ module.exports = {
             abortOnFail: true,
           }, {
             type: 'add',
-            path: '../../../src/app/business/interfaces/I{{lowerCase name}}.business.ts',
+            path:
+              '../../../src/app/business/interfaces/I{{lowerCase name}}.service.ts',
             templateFile: './components/ibusiness.js.hbs',
             abortOnFail: true,
             skipIfExists: true,
@@ -194,8 +195,7 @@ module.exports = {
       }
       return '';
     };
-
-    if (data.database !== 'none' && data.provider !== 'none') {
+    if (data.provider !== 'none' && data.database !=='none') {
       let fileTemplate = '../../../system/enums/database.enum.ts';
       const fie = path.join(__dirname, fileTemplate);
       if (fs.statSync(fie)) {
@@ -212,8 +212,8 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.database.toUpperCase()}: string = 'Db${capitalize(
-              data.database
-            )}Connection'` +
+                data.database
+              )}Connection'` +
               ';\r\n';
           }
           const provider = data.provider + '_PROVIDER';
@@ -224,8 +224,8 @@ module.exports = {
             contentMesage =
               contentMesage +
               `\tstatic readonly ${data.provider.toUpperCase()}_PROVIDER: string = '${capitalize(
-              data.provider
-            )}RepositoryToken'` +
+                data.provider
+              )}RepositoryToken'` +
               ';\r\n';
           }
         }

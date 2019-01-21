@@ -1,4 +1,4 @@
-import { NestFactory, HTTP_SERVER_REF } from '@nestjs/core';
+import { NestFactory } from '@nestjs/core';
 import * as compression from 'compression';
 import { AppModule } from './app.module';
 import Project from '../config/Project';
@@ -13,7 +13,6 @@ import * as chalk from 'chalk';
 const color = chalk.default;
 const fs = require('fs');
 const path = require('path');
-declare const module: any;
 
 async function createServer() {
   // const keyFile = fs.readFileSync(
@@ -50,11 +49,6 @@ async function createServer() {
     console.log(color.gray('Listening on ' + bind));
   });
 
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => app.close());
-  }
-
   /**
    * Event listener for HTTP server "error" event.
    */
@@ -67,11 +61,19 @@ async function createServer() {
     // handle specific listen errors with friendly messages
     switch (error.code) {
       case 'EACCES':
-        console.error(bind + ' requires elevated privileges');
+        console.log(
+          `${color.bgRed('[Error]:')} ${color.red(
+            bind + ' requires elevated privileges',
+          )}`,
+        );
         process.exit(1);
         break;
       case 'EADDRINUSE':
-        console.error(bind + ' is already in use');
+        console.log(
+          `[${color.bgRed('Error')}]: ${color.red(
+            bind + ' is already in use',
+          )}`,
+        );
         process.exit(1);
         break;
       default:
