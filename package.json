@@ -5,7 +5,7 @@
   "author": "tuanpt1702@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "npm run lint && ./node_modules/.bin/grunt sync && tsc",
+    "build": "npm run lint && NODE_BUILD=true ./node_modules/.bin/grunt sync && tsc",
     "rebuild": "rimraf dist && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "watch:build": "tsc --watch",

@@ -13,6 +13,7 @@ import * as chalk from 'chalk';
 const color = chalk.default;
 const fs = require('fs');
 const path = require('path');
+declare const module: any;
 
 async function createServer() {
   // const keyFile = fs.readFileSync(
@@ -48,6 +49,11 @@ async function createServer() {
       typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log(color.gray('Listening on ' + bind));
   });
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
 
   /**
    * Event listener for HTTP server "error" event.

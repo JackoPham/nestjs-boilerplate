@@ -15,7 +15,8 @@
             "outFiles": ["${workspaceRoot}/dist/**/*.js"],
             "env": {
                 "NODE_ENV": "Development",
-                "SINGLE_THREAD": "true"
+                "SINGLE_THREAD": "true",
+                "NODE_BUILD": "true"
             },
             "args": ["${relativeFile}"]
         }
