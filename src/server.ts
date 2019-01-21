@@ -1,9 +1,10 @@
+if (process.env.NODE_BUILD) require('module-alias/register');
 import * as cluster from 'cluster';
 import * as os from 'os';
-import Project from './config/Project';
-import createServer from './system/main';
+import Project from '@config/Project';
+import createServer from '@system/main';
 import 'reflect-metadata';
-import ServiceSystem from './system/ServiceSystem';
+import ServiceSystem from '@system/ServiceSystem';
 
 const proto = process.env.HTTPS ? 'https' : 'http';
 if (process.env.SINGLE_THREAD) {
@@ -13,7 +14,7 @@ if (process.env.SINGLE_THREAD) {
   console.log(
     '\x1b[32m',
     `\n${proto}://localhost${Project.PORT === 80 ? '' : ':' + Project.PORT}`,
-    '\x1b[0m'
+    '\x1b[0m',
   );
 } else {
   if (cluster.isMaster) {
@@ -24,7 +25,7 @@ if (process.env.SINGLE_THREAD) {
       `\n Master: ${proto}://localhost${
         Project.PORT === 80 ? '' : ':' + Project.PORT
       }`,
-      '\x1b[0m'
+      '\x1b[0m',
     );
     // SubscribeEvent.init();
 

@@ -26,7 +26,43 @@
     ],
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "@model/*": [
+        "src/app/model/*"
+      ],
+      "@business/*": [
+        "src/app/business/*"
+      ],
+      "@entity/*": [
+        "src/app/entity/*"
+      ],
+      "@module/*": [
+        "src/app/module/*"
+      ],
+      "@provider/*": [
+        "src/app/provider/*"
+      ],
+      "@repository/*": [
+        "src/app/repository/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@system/*": [
+        "src/system/*"
+      ],
+      "@controllers/*": [
+        "src/controllers/*"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"

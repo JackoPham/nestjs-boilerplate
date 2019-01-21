@@ -7,7 +7,7 @@ import {
   FileInterceptor,
   UploadedFile,
 } from '@nestjs/common';
-import { SystemService } from '../app/business/system.business';
+import { SystemService } from '@business/system.business';
 import { ApiConsumes, ApiImplicitFile } from '@nestjs/swagger';
 
 @Controller('system')

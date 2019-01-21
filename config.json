@@ -46,7 +46,7 @@
     },
     "SERVICE": {
       "POSTGRES_DB": false,
-      "REDIS": true,
+      "REDIS": false,
       "RABBITMQ": false,
       "EVENTSTORE": false
     },
